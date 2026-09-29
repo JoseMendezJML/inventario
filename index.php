@@ -59,6 +59,12 @@ $estado = $_GET['estado'] ?? '';
                 </div>
             <?php endif; ?>
 
+            <?php if ($estado === 'actualizado'): ?>
+    <div class="mensaje correcto">
+        Producto actualizado correctamente.
+    </div>
+<?php endif; ?>
+
             <?php if ($estado === 'incompleto'): ?>
                 <div class="mensaje error">
                     Debe completar todos los campos.
@@ -121,19 +127,20 @@ $estado = $_GET['estado'] ?? '';
             <div class="tabla-contenedor">
                 <table>
                     <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Producto</th>
-                            <th>Cantidad</th>
-                            <th>Estado</th>
-                            <th>Fecha</th>
-                        </tr>
-                    </thead>
+    <tr>
+        <th>ID</th>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Estado</th>
+        <th>Fecha</th>
+        <th>Acciones</th>
+    </tr>
+</thead>
 
                     <tbody>
                         <?php if (count($productos) === 0): ?>
                             <tr>
-                                <td colspan="5" class="sin-registros">
+                                <td colspan="6" class="sin-registros">
                                     No hay productos registrados.
                                 </td>
                             </tr>
@@ -174,6 +181,14 @@ $estado = $_GET['estado'] ?? '';
                                     echo $producto['fecharegistro'];
                                     ?>
                                 </td>
+                                <td>
+    <a
+        href="editar.php?id=<?php echo $producto['id']; ?>"
+        class="boton-editar"
+    >
+        Editar
+    </a>
+</td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>

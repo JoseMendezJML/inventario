@@ -192,6 +192,46 @@ footer {
     text-align: center;
 }
 
+.boton-editar {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 6px;
+    background: var(--azul-principal);
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.boton-editar:hover {
+    background: var(--azul-oscuro);
+}
+
+.contenedor-editar {
+    width: min(500px, 92%);
+    margin: 30px auto;
+}
+
+.formulario-editar {
+    width: 100%;
+}
+
+.boton-cancelar {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    color: var(--gris-texto);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.boton-cancelar:hover {
+    background: var(--gris-fondo);
+}
+
 @media (max-width: 850px) {
     .contenedor {
         grid-template-columns: 1fr;
