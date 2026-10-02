@@ -15,7 +15,14 @@ if ($nombre === '' || $cantidad === '') {
     exit;
 }
 
-if (!is_numeric($cantidad)) {
+if (preg_match_all('/./us', $nombre) < 3) {
+    header('Location: index.php?estado=nombre_invalido');
+    exit;
+}
+
+$cantidadValidada = filter_var($cantidad, FILTER_VALIDATE_INT);
+
+if ($cantidadValidada === false || $cantidadValidada <= 0) {
     header('Location: index.php?estado=cantidad_invalida');
     exit;
 }
@@ -27,7 +34,7 @@ $sentencia = $conexion->prepare(
 
 $sentencia->execute([
     'nombre' => $nombre,
-    'cantidad' => (int) $cantidad
+    'cantidad' => $cantidadValidada
 ]);
 
 header('Location: index.php?estado=guardado');
