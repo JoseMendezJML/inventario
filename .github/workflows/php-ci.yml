@@ -25,8 +25,8 @@ jobs:
         
       - name: Verificar sintaxis
         run: |
-          php -1 src/validaciones.php
-          php -1 tests/test_validaciones.php
+          php -l src/validaciones.php
+          php -l tests/test_validaciones.php
 
       - name: Ejecutar pruebas
         run: php tests/test_validaciones.php
